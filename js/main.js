@@ -1,39 +1,26 @@
 function getRandomIntInclusive (min, max) {
-  let number;
 
-  if (min >= 0 && max > min) {
-    number = Math.random() * (max - min + 1) + min;
-    return Math.floor(number);
+  if (min < 0 || max < 0 || min < 0, max < 0) {
+    min = Math.abs(min);
+    max = Math.abs(max);
   }
   if (min > max) {
-    number = Math.random() * (max - min + 1) + min;
-    let exchange = min;
-    min = max;
-    max = exchange;
-    return Math.floor(number);
+    [min, max] = [max, min];
   }
-  return Math.floor(number);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 getRandomIntInclusive(1, 8);
 
 let calculatingNumberDecimalPlaces = function (min, max, signs) {
-  let numberSecond;
-  let decimalPlaces;
 
-  if (min >= 0 && max > min) {
-    numberSecond = Math.random() * (max - min + 1) + min;
-    decimalPlaces = numberSecond.toFixed(signs);
-    return decimalPlaces;
+  if (min < 0 || max < 0 || min < 0 && max < 0) {
+    min = Math.abs(min);
+    max = Math.abs(max);
   }
   if (min > max) {
-    numberSecond = Math.random() * (max - min + 1) + min;
-    decimalPlaces = numberSecond.toFixed(signs);
-    let exchange = min;
-    min = max;
-    max = exchange;
-    return decimalPlaces;
+    [min, max] = [max, min];
   }
-  return decimalPlaces;
+  return Math.random() * (max - min + 1) + min.toFixed(signs);
 };
 
 calculatingNumberDecimalPlaces(2, 8, 5);
